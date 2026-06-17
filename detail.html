@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ライクイット様 提案骨子 — Artpeace 2026.06.18</title>
+<style>
+  :root {
+    --ap: #1a3a5c;
+    --ap-light: #2c5f8a;
+    --accent: #e8722a;
+    --accent-light: #f5a06a;
+    --bg: #f7f8fa;
+    --card: #ffffff;
+    --text: #1e2430;
+    --muted: #5f6b7a;
+    --border: #d8dee8;
+    --green: #2e7d52;
+    --green-bg: #edf7f2;
+    --red: #b33a3a;
+    --red-bg: #fdf0f0;
+    --yellow: #c27a00;
+    --yellow-bg: #fef9ec;
+    --purple: #5b3ec1;
+    --purple-bg: #f3f0fd;
+    --ms: #2e4e6e;
+    --ms-bg: #eef2f7;
+    --sp: #1a5c48;
+    --sp-bg: #e8f5f0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.7; }
+
+  .hero { background: var(--ap); color: #fff; padding: 48px 0 36px; }
+  .hero-inner { max-width: 980px; margin: 0 auto; padding: 0 32px; }
+  .hero-eyebrow { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-light); margin-bottom: 10px; }
+  .hero-title { font-size: 24px; font-weight: 700; line-height: 1.4; }
+  .hero-sub { font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 8px; }
+  .hero-meta { margin-top: 20px; display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-meta-item { background: rgba(255,255,255,0.1); border-radius: 6px; padding: 7px 14px; font-size: 12px; color: rgba(255,255,255,0.85); }
+  .hero-meta-item strong { color: #fff; display: block; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1px; }
+
+  .main { max-width: 980px; margin: 0 auto; padding: 36px 32px 80px; }
+
+  .section { margin-bottom: 56px; }
+  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+  .section-title { font-size: 20px; font-weight: 700; color: var(--ap); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 22px 26px; margin-bottom: 14px; }
+  .card-title { font-size: 13px; font-weight: 700; color: var(--ap); margin-bottom: 8px; }
+  .card.green { border-left: 4px solid var(--green); background: var(--green-bg); }
+  .card.red { border-left: 4px solid var(--red); background: var(--red-bg); }
+  .card.yellow { border-left: 4px solid var(--yellow); background: var(--yellow-bg); }
+  .card.accent { border-left: 4px solid var(--accent); }
+  .card.purple { border-left: 4px solid var(--purple); background: var(--purple-bg); }
+
+  .issue-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .issue-item { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; }
+  .issue-item .num { font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 1px; margin-bottom: 4px; }
+  .issue-item .ititle { font-weight: 700; font-size: 13px; color: var(--ap); margin-bottom: 4px; }
+  .issue-item p { font-size: 12px; color: var(--muted); }
+
+  table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
+  th { background: var(--ap); color: #fff; font-size: 12px; font-weight: 600; padding: 10px 14px; text-align: left; }
+  th.ms-col { background: var(--ms); }
+  th.sp-col { background: var(--sp); }
+  td { padding: 10px 14px; font-size: 13px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #f9fafb; }
+  .badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 7px; border-radius: 20px; margin-left: 4px; vertical-align: middle; white-space: nowrap; }
+  .badge.good { background: var(--green-bg); color: var(--green); }
+  .badge.bad { background: var(--red-bg); color: var(--red); }
+  .badge.mid { background: var(--yellow-bg); color: var(--yellow); }
+  .badge.neu { background: #eef2f7; color: var(--muted); }
+
+  .option-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+  .option-card { border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+  .option-head { padding: 18px 22px; }
+  .option-head.ms { background: var(--ms); color: #fff; }
+  .option-head.sp { background: var(--sp); color: #fff; }
+  .opt-label { font-size: 10px; letter-spacing: 1px; opacity: 0.7; margin-bottom: 3px; }
+  .opt-title { font-size: 16px; font-weight: 700; }
+  .opt-sub { font-size: 11px; opacity: 0.7; margin-top: 3px; }
+  .option-body { background: var(--card); padding: 18px 22px; border: 1px solid var(--border); border-top: none; border-radius: 0 0 12px 12px; }
+  .pro-con h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 5px; margin-top: 12px; }
+  .pro-con h4:first-child { margin-top: 0; }
+  .pro-con h4.pro { color: var(--green); }
+  .pro-con h4.con { color: var(--red); }
+  .pro-con ul { list-style: none; }
+  .pro-con li { font-size: 12px; padding: 2px 0 2px 15px; position: relative; color: var(--text); }
+  .pro-con li::before { position: absolute; left: 0; font-size: 11px; }
+  .pro-con .pro-list li::before { content: '○'; color: var(--green); }
+  .pro-con .con-list li::before { content: '✕'; color: var(--red); }
+
+  /* APP TABLE */
+  .app-table th { font-size: 12px; }
+  .app-table td { font-size: 12px; }
+  .free-badge { display: inline-block; background: var(--green-bg); color: var(--green); font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 3px; }
+  .paid-badge { display: inline-block; background: var(--yellow-bg); color: var(--yellow); font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 3px; }
+
+  /* COST SIM */
+  .sim-tab-header { display: flex; gap: 4px; margin-bottom: 0; }
+  .sim-tab { padding: 8px 18px; border-radius: 6px 6px 0 0; font-size: 12px; font-weight: 700; cursor: default; }
+  .sim-tab.ms { background: var(--ms); color: #fff; }
+  .sim-tab.sp { background: var(--sp); color: #fff; }
+  .sim-cases { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .sim-case { background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .sim-case-head { padding: 10px 16px; font-size: 12px; font-weight: 700; }
+  .sim-case-head.ms { background: var(--ms); color: #fff; }
+  .sim-case-head.sp { background: var(--sp); color: #fff; }
+  .sim-case-body { padding: 14px 16px; }
+  .sim-row { display: flex; justify-content: space-between; align-items: baseline; padding: 5px 0; border-bottom: 1px dashed var(--border); font-size: 12px; gap: 6px; }
+  .sim-row:last-child { border-bottom: none; }
+  .sim-row .lbl { color: var(--muted); }
+  .sim-row .val { font-weight: 600; }
+  .sim-total-box { margin-top: 10px; padding: 10px 12px; border-radius: 6px; }
+  .sim-total-box.ms { background: var(--ms-bg); }
+  .sim-total-box.sp { background: var(--sp-bg); }
+  .sim-total-row { display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; }
+  .sim-total-sub { font-size: 11px; color: var(--muted); text-align: right; margin-top: 1px; }
+
+  .diff-bar { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 14px 18px; margin-bottom: 18px; }
+  .diff-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .diff-item { text-align: center; padding: 12px 8px; background: var(--sp-bg); border-radius: 6px; }
+  .diff-item .di-label { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+  .diff-item .di-val { font-size: 18px; font-weight: 700; color: var(--green); }
+  .diff-item .di-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* TCO */
+  .tco-table th { font-size: 12px; padding: 9px 12px; }
+  .tco-table td { font-size: 12px; padding: 9px 12px; }
+  .diff-pos { color: var(--green); font-weight: 700; }
+  .diff-neg { color: var(--red); font-weight: 700; }
+  .diff-neu { color: var(--yellow); font-weight: 700; }
+  tr.tco-highlight td { background: #fff9e6; }
+
+  /* DATA MIGRATION */
+  .mig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .mig-item { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 20px 22px; }
+  .mig-num { font-size: 28px; font-weight: 900; color: var(--border); line-height: 1; margin-bottom: 6px; }
+  .mig-title { font-size: 14px; font-weight: 700; color: var(--ap); margin-bottom: 10px; }
+  .mig-body { font-size: 12.5px; color: var(--muted); }
+  .mig-decision { margin-top: 10px; background: var(--yellow-bg); border-left: 3px solid var(--yellow); padding: 8px 12px; border-radius: 0 4px 4px 0; font-size: 12px; }
+  .mig-decision strong { color: var(--yellow); display: block; font-size: 10px; letter-spacing: 1px; margin-bottom: 3px; }
+  .list { list-style: none; }
+  .list li { padding: 4px 0 4px 16px; position: relative; font-size: 13px; }
+  .list li::before { content: '▶'; position: absolute; left: 0; color: var(--accent); font-size: 9px; top: 7px; }
+  .list.plain li::before { content: '・'; color: var(--muted); font-size: 14px; top: 3px; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 7px; border-radius: 3px; margin: 1px; }
+  .tag.app { background: #ede9fd; color: #5b3ec1; }
+  .tag.free { background: var(--green-bg); color: var(--green); }
+
+  /* FEATURE */
+  .feature-block { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin-bottom: 16px; }
+  .fh { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+  .fi { width: 38px; height: 38px; border-radius: 8px; background: var(--sp); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .ft { font-size: 14px; font-weight: 700; color: var(--ap); }
+  .fs { font-size: 11px; color: var(--muted); margin-top: 1px; }
+
+  /* BUDGET */
+  .budget-rec td:first-child { border-left: 3px solid var(--accent); }
+  .budget-rec td { font-weight: 600; background: #fff9f5 !important; }
+
+  /* TIMELINE */
+  .tl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .tl-label { font-size: 13px; font-weight: 700; margin-bottom: 12px; padding: 6px 12px; border-radius: 4px; color: #fff; }
+  .tl-label.ms { background: var(--ms); }
+  .tl-label.sp { background: var(--sp); }
+  .timeline { position: relative; padding-left: 22px; }
+  .timeline::before { content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px; background: var(--border); }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ''; position: absolute; left: -19px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--ap); border: 2px solid #fff; box-shadow: 0 0 0 2px var(--ap); }
+  .tl-month { font-size: 10px; font-weight: 700; color: var(--accent); letter-spacing: 1px; margin-bottom: 2px; }
+  .tl-title { font-weight: 700; color: var(--ap); font-size: 13px; }
+  .tl-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  .strength-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .strength-item { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 18px 16px; text-align: center; }
+  .strength-item .icon { font-size: 26px; margin-bottom: 8px; }
+  .strength-item .stitle { font-size: 12px; font-weight: 700; color: var(--ap); margin-bottom: 4px; }
+  .strength-item p { font-size: 11.5px; color: var(--muted); }
+
+  .verdict { background: var(--ap); color: #fff; border-radius: 12px; padding: 28px 32px; margin-top: 36px; }
+  .verdict h2 { font-size: 16px; margin-bottom: 14px; color: var(--accent-light); }
+  .verdict-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .verdict-item { background: rgba(255,255,255,0.08); border-radius: 8px; padding: 16px 18px; }
+  .verdict-item h3 { font-size: 12px; font-weight: 700; margin-bottom: 7px; }
+  .verdict-item ul { list-style: none; }
+  .verdict-item li { font-size: 12px; color: rgba(255,255,255,0.8); padding: 2px 0 2px 14px; position: relative; }
+  .verdict-item li::before { content: '→'; position: absolute; left: 0; color: var(--accent-light); }
+
+  @media (max-width: 680px) {
+    .issue-grid, .option-grid, .sim-cases, .diff-grid, .mig-grid, .tl-grid, .strength-grid, .verdict-grid { grid-template-columns: 1fr; }
+    .hero-meta { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Artpeace — 提案骨子</div>
+    <div class="hero-title">ライクイット公式ECサイト リニューアル提案<br>MakeShop クリエイターモード vs Shopify スタンダード：費用対効果 完全比較</div>
+    <div class="hero-sub">先方のやりたいこと・実際にできること・かかるコストをフラットに整理した資料</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><strong>提案日</strong>2026年6月18日（木）</div>
+      <div class="hero-meta-item"><strong>提案先</strong>ライクイット株式会社 内川様・猪又様</div>
+      <div class="hero-meta-item"><strong>提案者</strong>株式会社アートピース</div>
+      <div class="hero-meta-item"><strong>対象</strong>likestore.like-it.jp</div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ===== S01 課題 ===== -->
+  <div class="section">
+    <div class="section-label">Section 01</div>
+    <div class="section-title">初回ヒアリングで確認した課題（共通認識）</div>
+    <div class="issue-grid">
+      <div class="issue-item">
+        <div class="num">ISSUE 01</div>
+        <div class="ititle">MakeShopベーシックモード終了</div>
+        <p>現行モードのサービス終了が確定。改修は「やるかどうか」ではなく「何に移行するか」の問題。今回の判断が今後5年の成長基盤を規定する。</p>
+      </div>
+      <div class="issue-item">
+        <div class="num">ISSUE 02</div>
+        <div class="ititle">コンテンツ更新のボトルネック</div>
+        <p>HTML手書き運用では商品LP・特集ページの制作スピードが上がらない。「良いモノがある」のに「届けられない」状態が継続している。</p>
+      </div>
+      <div class="issue-item">
+        <div class="num">ISSUE 03</div>
+        <div class="ititle">アンバサダー管理が完全手作業</div>
+        <p>約150名への個別クーポン付与・利用実績把握・インセンティブ計算（売上5〜8%）がすべて手動。規模拡大に体制が追いついていない。</p>
+      </div>
+      <div class="issue-item">
+        <div class="num">ISSUE 04</div>
+        <div class="ititle">CRM（メイクリピーター）への不満</div>
+        <p>費用・機能の満足度が低く乗り換え希望。ただしMakeShop継続ではネイティブ連携が維持できるメリットもある。</p>
+      </div>
+      <div class="issue-item">
+        <div class="num">ISSUE 05</div>
+        <div class="ititle">SEO資産・計測環境の引き継ぎ</div>
+        <p>自然検索流入が売上の6〜7割。「収納」カテゴリで検索1位を複数保有。プラットフォーム移行でのSEO毀損を最小化することが必須。</p>
+      </div>
+      <div class="issue-item">
+        <div class="num">ISSUE 06</div>
+        <div class="ititle">ブランド価値がWebで伝わっていない</div>
+        <p>グッドデザイン賞受賞・モジュール設計の拡張性など、商品の本質的な価値がECで表現できていない。高価格帯に見合うブランド体験の構築が急務。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== S02 2択 ===== -->
+  <div class="section">
+    <div class="section-label">Section 02</div>
+    <div class="section-title">2択のフラット比較</div>
+    <div class="option-grid">
+      <div class="option-card">
+        <div class="option-head ms">
+          <div class="opt-label">OPTION A</div>
+          <div class="opt-title">MakeShop クリエイターモード</div>
+          <div class="opt-sub">同一プラットフォーム内でのアップグレード</div>
+        </div>
+        <div class="option-body">
+          <div class="pro-con">
+            <h4 class="pro">メリット</h4>
+            <ul class="pro-list">
+              <li>初期費用が低い（改修のみ ¥80〜150万）</li>
+              <li>SEOリスクほぼゼロ（URLが変わらない）</li>
+              <li>メイクリピーターのネイティブ連携を維持可</li>
+              <li>既存の業務委託コーダーとの体制を維持しやすい</li>
+              <li>データ移行作業が不要・スケジュールが短い</li>
+            </ul>
+            <h4 class="con">デメリット</h4>
+            <ul class="con-list">
+              <li>ランニングコストがShopifyより高い（後述）</li>
+              <li>アンバサダー管理の本格自動化アプリが限定的</li>
+              <li>CRM乗り換えは別途検討が必要（スコープ外）</li>
+              <li>数年後に再移行を検討した際コストが二重発生するリスク</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="option-card">
+        <div class="option-head sp">
+          <div class="opt-label">OPTION B</div>
+          <div class="opt-title">Shopify スタンダード移行</div>
+          <div class="opt-sub">プラットフォームを刷新し、成長基盤を再設計</div>
+        </div>
+        <div class="option-body">
+          <div class="pro-con">
+            <h4 class="pro">メリット</h4>
+            <ul class="pro-list">
+              <li>ランニングコストがMakeShopより大幅に安い（後述）</li>
+              <li>アンバサダー管理：Shopify Collabs（無料）で自動化</li>
+              <li>CRM：Shopify Email（無料）基本利用＋上位ツールへの拡張が容易</li>
+              <li>ノーコード内製化・BtoB拡張・越境ECへの将来対応が容易</li>
+              <li>WordPress二重管理を解消できる（Shopifyブログへ統合）</li>
+            </ul>
+            <h4 class="con">デメリット</h4>
+            <ul class="con-list">
+              <li>初期移行コストが大きい（差額 +¥150〜200万）</li>
+              <li>SEOリダイレクト設計が必須（専門工程）</li>
+              <li>パスワード・ポイント残高の引き継ぎ不可（要対応）</li>
+              <li>PayPay等外部決済は+1.0%取引手数料が発生</li>
+              <li>Shopify料金はドル建て（為替変動リスク）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table>
+      <tr>
+        <th style="width:22%">比較軸</th>
+        <th class="ms-col" style="width:39%">A: MakeShop クリエイターモード</th>
+        <th class="sp-col" style="width:39%">B: Shopify スタンダード</th>
+      </tr>
+      <tr><td><strong>初期費用</strong></td><td>¥80〜150万（改修のみ）<span class="badge good">低い</span></td><td>¥250〜350万（移行＋SEO設計込み）<span class="badge bad">高い</span></td></tr>
+      <tr><td><strong>SEOリスク</strong></td><td>ほぼなし<span class="badge good">◎</span></td><td>リダイレクト設計で低減可能だが工数が必要<span class="badge mid">要対応</span></td></tr>
+      <tr><td><strong>ランニングコスト</strong><br><small>月商400万時</small></td><td>約¥243,000/月<span class="badge bad">高い</span></td><td>約¥160,000/月<span class="badge good">安い</span></td></tr>
+      <tr><td><strong>CRM</strong></td><td>メイクリピーター継続可<span class="badge good">維持可</span></td><td>Shopify Email（無料）→Klaviyo等へ上位拡張可<span class="badge mid">要移行</span></td></tr>
+      <tr><td><strong>アンバサダー</strong></td><td>自動化アプリが限定的<span class="badge bad">手作業残る</span></td><td>Shopify Collabs（無料）で基本自動化<span class="badge good">自動化可</span></td></tr>
+      <tr><td><strong>WordPress管理</strong></td><td>継続（二重管理のまま）<span class="badge mid">現状維持</span></td><td>Shopifyブログへ統合、WordPress廃止可<span class="badge good">◎</span></td></tr>
+      <tr><td><strong>スケジュール</strong></td><td>公開まで約3〜4ヶ月<span class="badge good">早い</span></td><td>公開まで約5〜6ヶ月<span class="badge mid">やや長い</span></td></tr>
+      <tr><td><strong>5年後の拡張性</strong></td><td>プラットフォームの成長に依存<span class="badge mid">不透明</span></td><td>世界最大ECプラットフォーム。機能追加が継続<span class="badge good">◎</span></td></tr>
+    </table>
+  </div>
+
+  <!-- ===== S03 アプリ一覧 ===== -->
+  <div class="section">
+    <div class="section-label">Section 03</div>
+    <div class="section-title">Shopify 推奨アプリ一覧（ライクイット様向け選定）</div>
+
+    <div class="card purple" style="margin-bottom:16px;">
+      <div class="card-title">アプリ費用の目安：月額 ¥10,000〜15,000程度（有料アプリ合計）</div>
+      <p style="font-size:13px;">Shopifyの強みは無料の公式アプリが充実している点。アンバサダー管理（Shopify Collabs）・メルマガ（Shopify Email）・業務自動化（Shopify Flow）はすべて無料で利用可能。有料アプリはレビュー・配送日時指定・帳票・ポイントの4本に絞れる。</p>
+    </div>
+
+    <h4 style="font-size:13px; font-weight:700; color:var(--green); margin-bottom:10px;">無料アプリ（6本）</h4>
+    <table class="app-table" style="margin-bottom:20px;">
+      <tr>
+        <th style="width:18%">カテゴリ</th>
+        <th style="width:25%">アプリ名</th>
+        <th>用途・ポイント</th>
+        <th style="width:10%; text-align:center;">費用</th>
+      </tr>
+      <tr><td>インフルエンサー施策</td><td><strong>Shopify Collabs</strong></td><td>アンバサダーへのクーポン発行・成果計測・コミッション管理。150名規模の管理に対応可能。<span class="tag free">メイクリピーター代替</span></td><td style="text-align:center;"><span class="free-badge">無料</span></td></tr>
+      <tr><td>メルマガ</td><td><strong>Shopify Email</strong></td><td>メールマガジン配信。月10,000通まで無料。基本的なステップメール・セグメント配信が可能。</td><td style="text-align:center;"><span class="free-badge">無料</span></td></tr>
+      <tr><td>業務自動化</td><td><strong>Shopify Flow</strong></td><td>タグ付け・在庫通知・業務自動化フローを構築。プログラミング不要でワークフロー設定可能。</td><td style="text-align:center;"><span class="free-badge">無料</span></td></tr>
+      <tr><td>商品検索</td><td><strong>Search & Discovery</strong></td><td>商品検索・絞り込み機能の強化。収納用品のサイズ・カラー・容量フィルタを設定できる。</td><td style="text-align:center;"><span class="free-badge">無料</span></td></tr>
+      <tr><td>Google連携</td><td><strong>Google & YouTube</strong></td><td>Googleショッピング・Merchant Center連携。商品データを自動同期し広告・無料掲載に活用。</td><td style="text-align:center;"><span class="free-badge">無料</span></td></tr>
+      <tr><td>お問い合わせ</td><td><strong>Powerful Form Builder</strong></td><td>お問い合わせフォーム作成。法人向け見積もりフォーム等も柔軟に設計可能。</td><td style="text-align:center;"><span class="free-badge">無料</span></td></tr>
+    </table>
+
+    <h4 style="font-size:13px; font-weight:700; color:var(--yellow); margin-bottom:10px;">有料アプリ（5本 / 月額合計 ¥10,000〜15,000）</h4>
+    <table class="app-table">
+      <tr>
+        <th style="width:18%">カテゴリ</th>
+        <th style="width:22%">アプリ名</th>
+        <th style="width:14%">月額目安</th>
+        <th>用途・ポイント</th>
+      </tr>
+      <tr><td>UGC・レビュー</td><td><strong>U-KOMI</strong></td><td>¥5,000〜</td><td>商品レビュー・Instagram投稿活用。MakeShop版から継続利用可能（既存レビュー資産を引き継ぎ）。</td></tr>
+      <tr><td>配送</td><td><strong>配送日時指定 .amp</strong></td><td>$9.80〜（≒¥1,500）</td><td>配送日時指定・伝票発行。日本の配送要件に対応した必須アプリ。</td></tr>
+      <tr><td>帳票発行</td><td><strong>Order Printer Pro</strong></td><td>$10〜（≒¥1,500）</td><td>領収書・納品書・注文確認書の発行。法人向け対応にも有効。</td></tr>
+      <tr><td>ポイント</td><td><strong>どこポイ</strong></td><td>¥3,000〜</td><td>ポイント付与・利用機能。現行ポイント残高の移行は要別途検討（下記参照）。</td></tr>
+      <tr><td>データ移行<br>（移行時のみ）</td><td><strong>Matrixify</strong></td><td>$20〜（≒¥3,000）</td><td>商品・顧客データなど一括変換・移行用。移行完了後は解約可。</td></tr>
+    </table>
+
+    <div class="card yellow" style="margin-top:14px;">
+      <div class="card-title">上位拡張オプション（必要に応じて追加）</div>
+      <p style="font-size:13px;">基本構成（¥10,000〜15,000/月）で多くの要件をカバーできますが、以下の高機能ツールへの移行も将来的なオプションとして検討可能：</p>
+      <table style="margin-top:10px; margin-bottom:0;">
+        <tr>
+          <th style="width:30%">ツール</th>
+          <th style="width:25%">月額目安</th>
+          <th>Shopify標準との違い</th>
+        </tr>
+        <tr><td>Klaviyo（CRM）</td><td>¥15,000〜30,000</td><td>高度なセグメント・かご落ち自動化・A/Bテスト。Shopify Emailの上位版。</td></tr>
+        <tr><td>UpPromote（アンバサダー）</td><td>¥4,500〜18,000</td><td>ランク管理・インセンティブ自動計算。Shopify Collabsの上位版。</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== S04 コストシミュレーション ===== -->
+  <div class="section">
+    <div class="section-label">Section 04</div>
+    <div class="section-title">ランニングコスト 詳細シミュレーション（3ケース）</div>
+
+    <div class="card yellow" style="margin-bottom:20px;">
+      <div class="card-title">試算の前提条件</div>
+      <table style="margin:0;">
+        <tr>
+          <th style="width:38%">費目</th>
+          <th class="ms-col" style="width:31%">A: MakeShop プレミアム</th>
+          <th class="sp-col" style="width:31%">B: Shopify スタンダード</th>
+        </tr>
+        <tr><td>月額基本費</td><td>¥44,000/月</td><td>¥15,750/月（$105 × ¥150換算）</td></tr>
+        <tr><td>クレカ手数料（VISA/Master）</td><td>3.24%（プレミアムプラン）</td><td>3.30%（Shopify Payments Japan）</td></tr>
+        <tr><td>クレカ手数料（JCB/AMEX）</td><td>3.80%（プレミアムプラン）</td><td>3.30%（全ブランド共通）</td></tr>
+        <tr><td>ブレンド手数料（80%VISA・20%JCB想定）</td><td><strong>約3.35%</strong></td><td><strong>3.30%</strong></td></tr>
+        <tr><td>外部決済（PayPay等）</td><td>MakeShop決済経由（込み）</td><td>Shopify Payments外 → <strong>+1.0%取引手数料</strong>が別途発生</td></tr>
+        <tr><td>CRM</td><td>メイクリピーター ¥30,000/月</td><td>Shopify Email（無料）</td></tr>
+        <tr><td>レコメンド</td><td>ECレコメンダー ¥20,000/月</td><td>Shopify標準（無料）</td></tr>
+        <tr><td>レビュー・UGC</td><td>U-KOMI ¥15,000/月</td><td>U-KOMI ¥5,000〜（Shopify版）</td></tr>
+        <tr><td>アンバサダー管理</td><td>手作業（ツールコスト別）</td><td>Shopify Collabs（無料）</td></tr>
+        <tr><td>配送・帳票・ポイント等</td><td>（含まれる）</td><td>有料アプリ合計 ¥5,500〜/月</td></tr>
+        <tr><td><strong>ツール費 合計</strong></td><td><strong>¥65,000/月</strong></td><td><strong>¥12,500/月（中央値）</strong></td></tr>
+      </table>
+      <p style="font-size:11px; color:var(--muted); margin-top:8px;">※ Shopify料金はドル建て。為替変動により上下します。アプリ費は概算。Shopify Advanced（$399/月）は月商約8,820万円にならないと費用回収できないため今回の規模では不要。</p>
+    </div>
+
+    <!-- 3ケース並列 -->
+    <div style="margin-bottom:6px; display:flex; gap:10px; font-size:12px; align-items:center;">
+      <div style="width:12px; height:12px; background:var(--ms); border-radius:2px; flex-shrink:0;"></div>
+      <span>MakeShop クリエイターモード</span>
+      <div style="width:12px; height:12px; background:var(--sp); border-radius:2px; flex-shrink:0; margin-left:10px;"></div>
+      <span>Shopify スタンダード</span>
+    </div>
+
+    <div class="sim-cases">
+      <!-- 300万 MS -->
+      <div class="sim-case">
+        <div class="sim-case-head ms">A: MakeShop ／ 月商300万円</div>
+        <div class="sim-case-body">
+          <div class="sim-row"><span class="lbl">月額基本費</span><span class="val">44,000円</span></div>
+          <div class="sim-row"><span class="lbl">決済手数料（3.35%）</span><span class="val">100,500円</span></div>
+          <div class="sim-row"><span class="lbl">ツール費</span><span class="val">65,000円</span></div>
+          <div class="sim-total-box ms">
+            <div class="sim-total-row"><span>月合計</span><span>209,500円</span></div>
+            <div class="sim-total-sub">年間：約251万円</div>
+          </div>
+        </div>
+      </div>
+      <!-- 400万 MS -->
+      <div class="sim-case">
+        <div class="sim-case-head ms">A: MakeShop ／ 月商400万円</div>
+        <div class="sim-case-body">
+          <div class="sim-row"><span class="lbl">月額基本費</span><span class="val">44,000円</span></div>
+          <div class="sim-row"><span class="lbl">決済手数料（3.35%）</span><span class="val">134,000円</span></div>
+          <div class="sim-row"><span class="lbl">ツール費</span><span class="val">65,000円</span></div>
+          <div class="sim-total-box ms">
+            <div class="sim-total-row"><span>月合計</span><span>243,000円</span></div>
+            <div class="sim-total-sub">年間：約292万円</div>
+          </div>
+        </div>
+      </div>
+      <!-- 500万 MS -->
+      <div class="sim-case">
+        <div class="sim-case-head ms">A: MakeShop ／ 月商500万円 ★来期目標</div>
+        <div class="sim-case-body">
+          <div class="sim-row"><span class="lbl">月額基本費</span><span class="val">44,000円</span></div>
+          <div class="sim-row"><span class="lbl">決済手数料（3.35%）</span><span class="val">167,500円</span></div>
+          <div class="sim-row"><span class="lbl">ツール費</span><span class="val">65,000円</span></div>
+          <div class="sim-total-box ms">
+            <div class="sim-total-row"><span>月合計</span><span>276,500円</span></div>
+            <div class="sim-total-sub">年間：約332万円</div>
+          </div>
+        </div>
+      </div>
+      <!-- 300万 SP -->
+      <div class="sim-case">
+        <div class="sim-case-head sp">B: Shopify ／ 月商300万円</div>
+        <div class="sim-case-body">
+          <div class="sim-row"><span class="lbl">月額基本費</span><span class="val">15,750円</span></div>
+          <div class="sim-row"><span class="lbl">Shopify Payments（3.30%）</span><span class="val">99,000円</span></div>
+          <div class="sim-row"><span class="lbl">アプリ費</span><span class="val">12,500円</span></div>
+          <div class="sim-total-box sp">
+            <div class="sim-total-row"><span>月合計（PayPayなし）</span><span>127,250円</span></div>
+            <div class="sim-total-sub">PayPay15%追加→+¥4,500/月 ＝ ¥131,750</div>
+          </div>
+        </div>
+      </div>
+      <!-- 400万 SP -->
+      <div class="sim-case">
+        <div class="sim-case-head sp">B: Shopify ／ 月商400万円</div>
+        <div class="sim-case-body">
+          <div class="sim-row"><span class="lbl">月額基本費</span><span class="val">15,750円</span></div>
+          <div class="sim-row"><span class="lbl">Shopify Payments（3.30%）</span><span class="val">132,000円</span></div>
+          <div class="sim-row"><span class="lbl">アプリ費</span><span class="val">12,500円</span></div>
+          <div class="sim-total-box sp">
+            <div class="sim-total-row"><span>月合計（PayPayなし）</span><span>160,250円</span></div>
+            <div class="sim-total-sub">PayPay15%追加→+¥6,000/月 ＝ ¥166,250</div>
+          </div>
+        </div>
+      </div>
+      <!-- 500万 SP -->
+      <div class="sim-case">
+        <div class="sim-case-head sp">B: Shopify ／ 月商500万円 ★来期目標</div>
+        <div class="sim-case-body">
+          <div class="sim-row"><span class="lbl">月額基本費</span><span class="val">15,750円</span></div>
+          <div class="sim-row"><span class="lbl">Shopify Payments（3.30%）</span><span class="val">165,000円</span></div>
+          <div class="sim-row"><span class="lbl">アプリ費</span><span class="val">12,500円</span></div>
+          <div class="sim-total-box sp">
+            <div class="sim-total-row"><span>月合計（PayPayなし）</span><span>193,250円</span></div>
+            <div class="sim-total-sub">PayPay15%追加→+¥7,500/月 ＝ ¥200,750</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 差額サマリ -->
+    <div class="diff-bar">
+      <p style="font-size:12px; font-weight:700; color:var(--ap); margin-bottom:10px;">Shopifyの月間コスト削減効果（MakeShop比）</p>
+      <div class="diff-grid">
+        <div class="diff-item">
+          <div class="di-label">月商300万円時</div>
+          <div class="di-val">▲82,250円/月</div>
+          <div class="di-sub">年間 約▲98.7万円</div>
+        </div>
+        <div class="diff-item">
+          <div class="di-label">月商400万円時</div>
+          <div class="di-val">▲82,750円/月</div>
+          <div class="di-sub">年間 約▲99.3万円</div>
+        </div>
+        <div class="diff-item">
+          <div class="di-label">月商500万円時 ★</div>
+          <div class="di-val">▲83,250円/月</div>
+          <div class="di-sub">年間 約▲99.9万円</div>
+        </div>
+      </div>
+      <p style="font-size:11px; color:var(--muted); margin-top:10px;">※ PayPay15%追加でも Shopifyの削減効果は ▲76,000〜77,000円/月（年間▲91〜92万円）を維持。</p>
+    </div>
+
+    <div class="card green">
+      <div class="card-title">コスト比較のポイント</div>
+      <ul class="list">
+        <li>Shopifyのクレカ手数料（3.30%）はMakeShopのブレンド率（約3.35%）とほぼ同等。差は月商500万で¥2,500程度。</li>
+        <li>決定的な差はツール費：MakeShop ¥65,000 vs Shopify ¥12,500。Shopify無料アプリ（Collabs・Email・Flow）がMakeShopの有料ツールを代替しているため。</li>
+        <li>PayPay等外部決済追加時の追加手数料（+1.0%）を含めても、年間削減効果は90万円超を維持。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== S05 TCO ===== -->
+  <div class="section">
+    <div class="section-label">Section 05</div>
+    <div class="section-title">総所有コスト比較（TCO）：損益分岐点の検証</div>
+
+    <div class="card yellow" style="margin-bottom:16px;">
+      <div class="card-title">前提：月商400万円（来期EC目標¥5,000万 ÷ 12ヶ月）で試算</div>
+      <p style="font-size:13px;">MakeShop初期費用¥115万（中央値）・Shopify初期費用¥300万（中央値）・ランニングコスト差¥82,750/月（年間¥993,000）で計算。</p>
+    </div>
+
+    <table class="tco-table">
+      <tr>
+        <th style="width:22%">コスト項目</th>
+        <th class="ms-col" style="width:26%">A: MakeShop</th>
+        <th class="sp-col" style="width:26%">B: Shopify</th>
+        <th style="width:26%">差額（Shopify基準）</th>
+      </tr>
+      <tr><td><strong>初期費用（中央値）</strong></td><td>¥1,150,000</td><td>¥3,000,000</td><td class="diff-neg">+¥1,850,000（Shopify高い）</td></tr>
+      <tr><td><strong>年間ランニング</strong></td><td>¥2,916,000</td><td>¥1,923,000</td><td class="diff-pos">▲¥993,000/年（Shopify安い）</td></tr>
+      <tr><td><strong>1年後 累計</strong></td><td>¥4,066,000</td><td>¥4,923,000</td><td class="diff-neg">Shopify +¥857,000</td></tr>
+      <tr class="tco-highlight"><td><strong>2年後 累計</strong></td><td>¥6,982,000</td><td>¥6,846,000</td><td class="diff-pos">Shopify ▲¥136,000 ← <strong>逆転</strong></td></tr>
+      <tr><td><strong>3年後 累計</strong></td><td>¥9,898,000</td><td>¥8,769,000</td><td class="diff-pos">Shopify ▲¥1,129,000</td></tr>
+      <tr><td><strong>4年後 累計</strong></td><td>¥12,814,000</td><td>¥10,692,000</td><td class="diff-pos">Shopify ▲¥2,122,000</td></tr>
+    </table>
+
+    <div class="card green" style="margin-top:14px;">
+      <div class="card-title">損益分岐点の結論</div>
+      <ul class="list">
+        <li><strong>約22ヶ月（2年弱）でShopifyへの初期投資を回収。</strong>2年目以降は毎年約¥100万円のコスト優位性が継続する。</li>
+        <li>ライクイット様のECは今後120%成長を想定しており、月商が増えるほどツール費差額（¥52,500/月）が定額でかかり続けるMakeShopとの差は広がる。</li>
+        <li>来期目標の月商500万円での年間削減効果は ¥999,000/年。損益分岐はさらに短縮される。</li>
+      </ul>
+    </div>
+    <div class="card red" style="margin-top:0;">
+      <div class="card-title">MakeShop継続の隠れたリスク（TCO試算に含まれていない部分）</div>
+      <ul class="list">
+        <li>数年後に再度Shopify移行を検討した場合、その時点の移行コスト（¥300万）が再発生する。今回移行するより将来の方が規模が大きく移行コストも増加する可能性。</li>
+        <li>アンバサダー管理の手作業工数：担当者が週数時間を要する場合、年間の人件費換算コストが¥30〜60万発生する可能性。TCOに含めると差はさらに縮む。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== S06 データ移行 ===== -->
+  <div class="section">
+    <div class="section-label">Section 06</div>
+    <div class="section-title">データ移行・リダイレクト設計（Shopify移行時）</div>
+
+    <div class="card accent" style="margin-bottom:18px;">
+      <div class="card-title">移行設計の基本方針</div>
+      <p style="font-size:13px;">弊社が変換ルールとテンプレートを設計し、<strong>単純作業（投入）はライクイット様サイドで完結する役割分担</strong>を想定します。移行設計コスト（プロ工程）に集中して費用を投下し、データ投入の工数を最小化します。</p>
+    </div>
+
+    <div class="mig-grid">
+      <div class="mig-item">
+        <div class="mig-num">01</div>
+        <div class="mig-title">商品データ（SKU 100点超）</div>
+        <div class="mig-body">
+          <p>弊社がMakeShop項目→Shopifyへの変換ルールとテンプレートを設計。確定後の投入はライクイット様側で完結する形を想定。</p>
+          <p style="margin-top:6px;">付随設計：商品説明内の独自HTML・コーディネート機能等のメタフィールド設計も弊社が担当。</p>
+        </div>
+        <div class="mig-decision">
+          <strong>要決定事項</strong>
+          収納用品の多バリエーション（サイズ・カラー・容量）がShopifyのバリアント構造（オプション3種まで）に収まるか、実データで確認が必要。バリアント設計は移行前に確定させる。
+        </div>
+      </div>
+      <div class="mig-item">
+        <div class="mig-num">02</div>
+        <div class="mig-title">WordPress記事（Shopify標準ブログへ移行）</div>
+        <div class="mig-body">
+          <p>別環境のWordPress記事を、画像・公開日とともにShopifyブログへ移行。本文クレンジングと旧商品リンクの貼り替えは弊社で実施。</p>
+          <p style="margin-top:6px;"><strong>推奨：</strong>作り込まれた連載・特集はShopify標準ブログで再現しきれないため、リッチなものはセクション型テンプレートで受ける振り分けを推奨。</p>
+        </div>
+        <div class="mig-decision">
+          <strong>移行後のメリット</strong>
+          WordPress環境を廃止できる。現在の「MakeShopとWordPressの二重管理」が解消され、Shopify上でコンテンツを一元管理できるようになる。
+        </div>
+      </div>
+      <div class="mig-item">
+        <div class="mig-num">03</div>
+        <div class="mig-title">会員・顧客データ</div>
+        <div class="mig-body">
+          <p>弊社が整形設計（MakeShopの姓名結合データの分割等）を行い、ライクイット様は投入に専念できる形に整理する。</p>
+        </div>
+        <div class="mig-decision">
+          <strong>要決定事項（3点）</strong>
+          ①パスワードは引き継ぎ不可 → 全会員へ再設定案内が必要（アンバサダー150名含む通知方針を要相談）。<br>
+          ②ポイント残高はShopify標準で保持不可 → ロイヤルティアプリ（どこポイ）導入か制度見直しかを選択。<br>
+          ③過去注文は利用目的により移行範囲が変わるため要ヒアリング（顧客向け表示用 or 内部分析用など）。
+        </div>
+      </div>
+      <div class="mig-item">
+        <div class="mig-num">04</div>
+        <div class="mig-title">リダイレクト（SEO評価維持の最重要工程）</div>
+        <div class="mig-body">
+          <p>旧URL（MakeShop：数字ID型）・新URL（Shopify：文字列ハンドル型）で自動変換不可。商品・カテゴリ・記事の全件で「旧→新」対応表を作成し、301をCSV一括設定。</p>
+          <p style="margin-top:6px;">自然検索流入6〜7割を守るための最重要工程。件数が多いため設計工数がかかるが、ここを省略すると検索順位が大幅下落するリスクがある。</p>
+        </div>
+        <div class="mig-decision">
+          <strong>弊社の対応</strong>
+          全件のURL対応表を弊社が作成・設定。公開後1〜2ヶ月間は検索順位を週次モニタリングし、異常があれば即対応する体制を組む。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== S07 各オプションの実現内容 ===== -->
+  <div class="section">
+    <div class="section-label">Section 07</div>
+    <div class="section-title">各オプションで「実際にできること」</div>
+
+    <h3 style="font-size:14px; font-weight:700; color:var(--ms); margin-bottom:12px; padding-left:10px; border-left:4px solid var(--ms);">Option A：MakeShop クリエイターモードで対応できること</h3>
+    <div class="feature-block">
+      <div class="fh"><div class="fi" style="background:var(--ms);">🛠</div><div><div class="ft">ノーコード運用体制の確立</div><div class="fs">クリエイターモードで担当者がHTMLなしでページ作成・更新可能に</div></div></div>
+      <ul class="list">
+        <li>ブランドの世界観を統一したデザインテンプレートを弊社が設計。以降の量産は内製で対応。</li>
+        <li>メイクリピーターはネイティブ連携を維持しながら継続。CRM移行を後回しにして移行リスクを下げることができる。</li>
+        <li>U-KOMI（MakeShop版）継続。レビュー資産はそのまま維持。</li>
+      </ul>
+    </div>
+    <div class="card red" style="margin-bottom:28px;">
+      <div class="card-title">Option Aでは対応が難しいこと</div>
+      <ul class="list plain" style="font-size:12.5px;">
+        <li>アンバサダー管理の本格自動化（クーポン利用トラッキング・インセンティブ自動計算）は手作業が残る</li>
+        <li>CRM乗り換え（メイクリピーター → ネイティブツール）は今回スコープ外。将来別途対応が必要</li>
+        <li>WordPress記事は引き続き別環境で管理（二重管理が続く）</li>
+      </ul>
+    </div>
+
+    <h3 style="font-size:14px; font-weight:700; color:var(--sp); margin-bottom:12px; padding-left:10px; border-left:4px solid var(--sp);">Option B：Shopify スタンダードで対応できること</h3>
+    <div class="feature-block">
+      <div class="fh"><div class="fi">👥</div><div><div class="ft">「ライクイットファミリー」アンバサダー管理の自動化</div><div class="fs">Shopify Collabs（無料）で基本自動化。高度化はUpPromoteへ拡張可。</div></div></div>
+      <ul class="list">
+        <li>約150名への個別クーポン（同一コード継続を目標に設計）を管理。利用実績のリアルタイムトラッキング・利用時通知。</li>
+        <li>コミッション自動計算（売上5〜8%）・支払いフロー構築</li>
+        <li>商品ページとアンバサダーコンテンツの紐づけ → SNS拡散から購買・報酬付与まで自動化</li>
+      </ul>
+    </div>
+    <div class="feature-block">
+      <div class="fh"><div class="fi">📧</div><div><div class="ft">CRM：Shopify Email（無料）で基本対応 → Klaviyo拡張も可</div><div class="fs">メイクリピーターからの移行。顧客データは継承・施策シナリオは再設計。</div></div></div>
+      <ul class="list">
+        <li>Shopify Email（無料）で月10,000通まで配信。基本的なステップメール・セグメント配信を設定。</li>
+        <li>高度な自動化（かご落ち・AIレコメンド配信）が必要になった段階でKlaviyoへ移行する段階的プランを推奨。</li>
+        <li>顧客データ（購買履歴・会員情報）は弊社が整形設計し確実に移行。過去の配信実績は引き継ぎ不要と確認済み。</li>
+      </ul>
+    </div>
+    <div class="feature-block">
+      <div class="fh"><div class="fi">📦</div><div><div class="ft">商品の強みを活かすUI・在庫機能</div><div class="fs">モジュール設計・コーディネート提案をサイトで体現する</div></div></div>
+      <ul class="list">
+        <li>コーディネート（一括カート追加）機能 / クロスセル・レコメンド（Shopify標準）/ 直感的なバリエーション選択</li>
+        <li>Search & Discovery（無料）で「サイズ・カラー・容量」の絞り込み検索を実装</li>
+        <li>プレオーダー（予約販売）・再入荷通知機能 → 欠品ロスをゼロに</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== S08 初期費用 ===== -->
+  <div class="section">
+    <div class="section-label">Section 08</div>
+    <div class="section-title">初期費用 概算（両案）</div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+      <div class="sim-case">
+        <div class="sim-case-head ms">A: MakeShop クリエイターモード</div>
+        <div class="sim-case-body">
+          <div class="sim-row"><span class="lbl">サイト設計・情報設計</span><span class="val">20〜30万円</span></div>
+          <div class="sim-row"><span class="lbl">デザイン・テンプレート制作</span><span class="val">40〜70万円</span></div>
+          <div class="sim-row"><span class="lbl">コーディング・実装</span><span class="val">20〜50万円</span></div>
+          <div class="sim-row"><span class="lbl">SEO設定・メタ情報整備</span><span class="val">0〜10万円</span></div>
+          <div class="sim-total-box ms">
+            <div class="sim-total-row"><span>概算合計</span><span>¥80〜160万円</span></div>
+            <div class="sim-total-sub">データ移行・SEO設計不要</div>
+          </div>
+        </div>
+      </div>
+      <div class="sim-case">
+        <div class="sim-case-head sp">B: Shopify スタンダード移行</div>
+        <div class="sim-case-body">
+          <div class="sim-row"><span class="lbl">サイト設計・情報設計・構築費</span><span class="val">150〜200万円</span></div>
+          <div class="sim-row"><span class="lbl">移行設計（データ・SEO・リダイレクト）</span><span class="val">60〜100万円</span></div>
+          <div class="sim-row"><span class="lbl">アプリ設定・アンバサダー設計</span><span class="val">20〜30万円</span></div>
+          <div class="sim-row"><span class="lbl">テスト・リダイレクト確認</span><span class="val">10〜20万円</span></div>
+          <div class="sim-total-box sp">
+            <div class="sim-total-row"><span>概算合計</span><span>¥250〜350万円</span></div>
+            <div class="sim-total-sub">移行設計が最大の工数・費用ポイント</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">役割分担（弊社 vs ライクイット様）</div>
+      <table style="margin:0;">
+        <tr>
+          <th>弊社が担う（上流設計・専門工程）</th>
+          <th>ライクイット様が担う（投入・単純作業）</th>
+        </tr>
+        <tr>
+          <td>
+            <ul class="list plain">
+              <li>情報設計・サイト構成・デザイン</li>
+              <li>データ変換ルール設計・マッピング（Shopify時）</li>
+              <li>SEO引き継ぎ・301リダイレクト設計（Shopify時）</li>
+              <li>アプリ設定・アンバサダープログラム設計（Shopify時）</li>
+              <li>テンプレート確立・動作確認・公開</li>
+            </ul>
+          </td>
+          <td>
+            <ul class="list plain">
+              <li>商品データの投入（テンプレ確立後）</li>
+              <li>画像リサイズ・ファイル整備</li>
+              <li>コンテンツテキスト入力・ページ量産</li>
+              <li>顧客データの投入（弊社が整形設計後）</li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== S09 スケジュール ===== -->
+  <div class="section">
+    <div class="section-label">Section 09</div>
+    <div class="section-title">実施スケジュール（案）</div>
+    <div class="card yellow" style="margin-bottom:18px;">
+      <div class="card-title">7月末の目標</div>
+      <p style="font-size:13px;">完全公開は現実的ではありません。いずれの案でも「6月下旬発注 → 7月末に設計完了・社内報告」を目指します。<strong>MakeShop案は公開まで約3〜4ヶ月、Shopify案は約5〜6ヶ月</strong>が目安です。</p>
+    </div>
+    <div class="tl-grid">
+      <div>
+        <div class="tl-label ms">A: MakeShop クリエイターモード</div>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-month">6月下旬</div><div class="tl-title">発注・キックオフ</div><div class="tl-desc">現状サイト調査・デザイン方針合意</div></div>
+          <div class="tl-item"><div class="tl-month">7月（社内報告）</div><div class="tl-title">設計・デザイン確定</div><div class="tl-desc">情報設計・テンプレートデザイン確定</div></div>
+          <div class="tl-item"><div class="tl-month">8〜9月</div><div class="tl-title">実装・コンテンツ投入</div><div class="tl-desc">クリエイターモードへの実装・データ投入（自社）</div></div>
+          <div class="tl-item"><div class="tl-month">10月</div><div class="tl-title">テスト・公開</div><div class="tl-desc">動作確認・SEO確認・本番公開</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="tl-label sp">B: Shopify スタンダード</div>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-month">6月下旬</div><div class="tl-title">発注・キックオフ</div><div class="tl-desc">現状調査・データマッピング設計・バリアント確認</div></div>
+          <div class="tl-item"><div class="tl-month">7月（社内報告）</div><div class="tl-title">移行設計・サイト設計確定</div><div class="tl-desc">SEO設計・CRM移行方針・アンバサダー設計確定</div></div>
+          <div class="tl-item"><div class="tl-month">8〜9月</div><div class="tl-title">Shopify構築・アプリ設定</div><div class="tl-desc">環境構築・アプリ設定・データ投入（自社）並行</div></div>
+          <div class="tl-item"><div class="tl-month">10〜11月</div><div class="tl-title">テスト・リダイレクト確認・公開</div><div class="tl-desc">SEOリダイレクト検証・計測確認・本番公開</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== S10 強み ===== -->
+  <div class="section">
+    <div class="section-label">Section 10</div>
+    <div class="section-title">Artpeaceを選ぶ理由</div>
+    <div class="strength-grid">
+      <div class="strength-item"><div class="icon">🛒</div><div class="stitle">EC・D2C特化18年</div><p>「作るだけ」の制作会社ではなく、EC事業を育てる伴走型パートナー。売上と顧客体験の両立が専門。</p></div>
+      <div class="strength-item"><div class="icon">🔄</div><div class="stitle">両プラットフォームの実績</div><p>MakeShop・Shopify双方に精通。GOOD ON様MakeShopリニューアル・リビングート様EC-CUBE移行など。</p></div>
+      <div class="strength-item"><div class="icon">📊</div><div class="stitle">CRM・グロース設計力</div><p>メール・LINE CRMの設計・シナリオ構築を担当。「アプリを入れる」だけでなく「顧客を動かす設計」まで担う。</p></div>
+      <div class="strength-item"><div class="icon">🎨</div><div class="stitle">デザイン品質</div><p>アーティスト経験者が在籍。「収納用品の機能美」を伝えるビジュアル設計が得意。グッドデザイン賞の価値を表現できる。</p></div>
+      <div class="strength-item"><div class="icon">🧑‍💻</div><div class="stitle">内製化支援の仕組み化</div><p>テンプレート確立後に自社スタッフがノーコードで動かせる体制を確立。運用マニュアル・研修を体系的に提供。</p></div>
+      <div class="strength-item"><div class="icon">🔎</div><div class="stitle">SEO・移行設計の専門性</div><p>リダイレクト・計測環境・構造化データまで一貫して設計。移行後の検索順位を週次モニタリングする体制も組む。</p></div>
+    </div>
+  </div>
+
+  <!-- ===== S11 リスク ===== -->
+  <div class="section">
+    <div class="section-label">Section 11</div>
+    <div class="section-title">両案のリスク評価</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+      <div class="card green" style="margin-bottom:0;">
+        <div class="card-title">Option A（MakeShop）の主なリスク</div>
+        <ul class="list">
+          <li>数年後に再移行を検討する際、移行コストが二重発生する</li>
+          <li>アンバサダー管理の手作業が継続し、規模拡大時に工数が増大する</li>
+          <li>CRM乗り換えを後から行う際、別途移行コストと学習コストが発生する</li>
+        </ul>
+      </div>
+      <div class="card red" style="margin-bottom:0;">
+        <div class="card-title">Option B（Shopify）の主なリスクと対策</div>
+        <ul class="list">
+          <li><strong>SEO順位低下：</strong>リダイレクト設計・週次モニタリングで低減（弊社対応）</li>
+          <li><strong>パスワード再設定問題：</strong>全会員向け再設定案内メールを移行前に設計</li>
+          <li><strong>ポイント残高：</strong>どこポイ導入 or ポイント無効化の補填施策を事前合意</li>
+          <li><strong>為替変動：</strong>$105/月のため±10円で月1,050円の変動。許容範囲内。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== VERDICT ===== -->
+  <div class="verdict">
+    <h2>弊社からの判断軸の提示</h2>
+    <div class="verdict-grid">
+      <div class="verdict-item">
+        <h3>MakeShop クリエイターモードを選ぶ場合</h3>
+        <ul>
+          <li>初期コストを抑えて確実・スピーディにリニューアルしたい</li>
+          <li>SEOリスクをゼロにしたい</li>
+          <li>CRM・アンバサダー自動化は後フェーズで検討</li>
+          <li>2〜3年後にShopify移行を改めて検討する意向がある</li>
+        </ul>
+      </div>
+      <div class="verdict-item">
+        <h3>Shopify スタンダードを選ぶ場合</h3>
+        <ul>
+          <li>3年以上同じプラットフォームを使い続ける前提がある</li>
+          <li>アンバサダー管理・CRM移行を今回一気に解決したい</li>
+          <li>ランニングコストを年間¥100万削減し事業成長に回したい</li>
+          <li>来期目標¥5,000万（月商500万）に向けた基盤として投資できる</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:11px; color:var(--muted); text-align:center; margin-top:28px;">本資料は提案骨子です。費用シミュレーションは概算です。正式見積もりはスコープ確定後に提出します。© 2026 株式会社アートピース</p>
+
+</div>
+</body>
+</html>
