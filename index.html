@@ -153,19 +153,19 @@
   .vs-table .mid { color: var(--gold); font-weight: 600; }
 
   .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
-  .pricing-item { padding: 28px 24px; border-right: 1px solid var(--border); }
+  .pricing-item { padding: 28px 24px; border-right: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); }
   .pricing-item:last-child { border-right: none; }
   .pricing-item.featured { background: var(--orange); color: #fff; }
-  .pricing-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .pricing-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 8px; }
   .pricing-item.featured .pricing-label { color: rgba(255,255,255,0.7); }
-  .pricing-name { font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+  .pricing-name { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 4px; }
   .pricing-item.featured .pricing-name { color: #fff; }
-  .pricing-price { font-size: 28px; font-weight: 900; color: var(--navy); line-height: 1.1; margin-bottom: 12px; }
+  .pricing-price { font-size: 28px; font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 12px; }
   .pricing-item.featured .pricing-price { color: #fff; }
-  .pricing-desc { font-size: 12px; color: var(--muted); line-height: 1.7; }
-  .pricing-item.featured .pricing-desc { color: rgba(255,255,255,0.8); }
-  .pricing-tag { display: inline-block; margin-top: 12px; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; background: rgba(255,255,255,0.2); color: #fff; }
-  .pricing-item:not(.featured) .pricing-tag { background: var(--orange-bg); color: var(--orange); }
+  .pricing-desc { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+  .pricing-item.featured .pricing-desc { color: rgba(255,255,255,0.85); }
+  .pricing-tag { display: inline-block; margin-top: 12px; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); }
+  .pricing-item.featured .pricing-tag { background: rgba(255,255,255,0.25); color: #fff; }
 
   @media (max-width: 720px) {
     .stat-row, .pillar-grid, .roi-grid, .phase-row, .why-grid, .fw-steps, .pricing-grid { grid-template-columns: 1fr; }
